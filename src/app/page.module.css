@@ -1,4 +1,3 @@
-
 .heroSection {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -373,8 +372,8 @@
   }
 
   .aboutSection {
-  padding: 14px 50px;
-}
+    padding: 14px 50px;
+  }
 }
 
 /* Mobile */
