@@ -1,6 +1,6 @@
 .containerheroimg {
   width: 100%;
-  max-width: 1580px;
+  max-width: 1600px;
   margin: 0 auto;
   height: 730px; /* DESKTOP HEIGHT */
   overflow: hidden;
@@ -194,5 +194,168 @@
 
   .statItem p {
     font-size: 22px;
+  }
+}
+.leadershipSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.heading {
+  font-size: 44px;
+  font-weight: 700;
+  color: #0b2c6f;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* GRID */
+.leadersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* CARD */
+.leaderCard {
+  text-align: center;
+  transition: transform 0.35s ease;
+}
+
+.leaderCard img {
+  width: 100%;
+  max-width: 320px;
+  height: 360px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.leaderCard h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+.leaderCard p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 1px;
+  margin-top: 0;
+  transition: transform 0.3s ease;
+}
+
+/* ---------- HOVER EFFECT ---------- */
+.leaderCard:hover {
+  transform: translateY(-6px);
+}
+
+.leaderCard:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.leaderCard:hover h3 {
+  color: #0b2c6f;
+}
+
+.leaderCard:hover p {
+  transform: translateY(2px);
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 900px) {
+  .leadersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leaderCard img {
+    height: 320px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  .leadersGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .leaderCard img {
+    height: 300px;
+  }
+}
+
+
+.mid {
+  text-align: center;
+  width: 100%;
+  font-size: 34px;
+  color: rgb(6, 6, 101);
+  font-weight: 900;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 18px;
+}
+
+.mapCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapCenterH2 {
+  margin-top: 0;
+  display: none;
+}
+
+/* Wrapper controls responsiveness */
+.mapWrapper {
+  width: 100%;
+  max-width: 500px; /* Laptop size */
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mapWrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .mapWrapper {
+    max-width: 100%;
+    height: 330px;
+  }
+  .mapCenterH2 {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--brand);
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .contactGrid {
+    grid-template-columns: 1fr; /* stack */
+  }
+
+  .mid {
+    text-align: center;
   }
 }

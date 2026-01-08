@@ -21,7 +21,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`container ${styles.footer}`}>
       <div className="container">
         <div className={styles.grid}>
           {/* Brand Section */}

@@ -8,8 +8,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className={styles.header}>
-      <div className={`${styles.container  } container`}>
+    <header className={`container ${styles.header}`}>
+      <div className={styles.containers  }>
         <div className={styles.brand}>
           <Link
             href="/"
