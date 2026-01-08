@@ -1,0 +1,196 @@
+/* ================= HEADER ================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, var(--white), #fbfcfd);
+  border-bottom: 1px solid #edf0f4;
+  z-index: 60;
+  padding: 20px 30px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative; /* keeps hamburger inside */
+}
+
+/* ================= BRAND ================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.logoLink {
+  display: inline-flex;
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--brand);
+  font-size: clamp(20px, 2.2vw, 28px);
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ================= NAV ================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navLink {
+  font-size: 24px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.navLink:hover {
+  font-weight: 600;
+}
+
+.cta {
+  background: var(--brand);
+  color: var(--white) !important;
+  padding: 9px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.cta:hover {
+  background: rgb(84, 84, 255);
+  transform: translateY(-2px);
+}
+
+/* ================= HAMBURGER MENU ================= */
+
+.mobileBtn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+}
+
+/* Middle line */
+.ham {
+  display: block;              /* 🔥 IMPORTANT */
+  width: 28px;
+  height: 3px;
+  background: #111;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* Top & bottom lines */
+.ham::before,
+.ham::after {
+  content: "";
+  display: block;              /* 🔥 IMPORTANT */
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #111;
+  left: 0;
+  border-radius: 2px;
+}
+
+.ham::before {
+  top: -8px;
+}
+
+.ham::after {
+  top: 8px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+.brand {
+  gap: 14px;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--brand);
+  font-size: clamp(18px, 2.2vw, 28px);
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-size: clamp(12px, 1.3vw, 16px);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 12px;
+
+    flex-direction: column;
+    background: var(--white);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+
+    display: none;
+    min-width: 220px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+@media (max-width: 1100px) {
+  .mobileBtn {
+    display: block;
+  }
+}
+
+}

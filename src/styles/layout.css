@@ -1,0 +1,105 @@
+@import "./variables.css";
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #0b1421;
+  margin: 0;
+  line-height: 1.45;
+}
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 62px;
+}
+
+.containerheroimg {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  /* padding: 0 12px; */
+}
+
+/* utility */
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.card {
+  background: var(--white);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-primary {
+  background: var(--brand);
+  color: var(--white);
+      transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+background: rgb(84, 84, 255);
+    transform: translateY(-2px); /* subtle lift */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #e6e9ee;
+  color: var(--brand);
+}
+.small {
+  font-size: 14px;
+  color: var(--muted);
+}
+.lead {
+  color: var(--muted);
+}
+
+/* responsive helpers */
+@media (max-width: 900px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 600px) {
+.card {
+  background: var(--white);
+  padding: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  margin: auto;
+}
+}

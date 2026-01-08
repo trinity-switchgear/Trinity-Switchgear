@@ -1,0 +1,122 @@
+.footer {
+  margin-top: 60px;
+  background: rgb(6, 6, 101);
+  color: #fff;
+  padding: 40px 0 20px;
+  border-radius: 14px 14px 0 0;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-bottom: 30px;
+}
+
+/* Brand Section */
+.brand h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.brand p {
+  opacity: 0.8;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Headings */
+.heading {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Links */
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links li {
+  margin-bottom: 8px;
+}
+
+.links a {
+  color: #d0d7e0;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+.links a:hover {
+  color: #fff;
+  padding-left: 4px;
+}
+
+/* Bottom text */
+.bottomLine {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  padding-top: 15px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    padding: 32px 0 16px;
+  }
+
+  .brand h3 {
+    font-size: 18px;
+  }
+}
+
+
+/* Counter Grid */
+.counterGrid {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* Individual Counter Card */
+.counterCard {
+  background: rgb(83, 83, 226);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.counterCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+}
+
+/* Counter Icon */
+.counterIcon {
+  font-size: 28px;
+}
+
+/* Counter Number */
+.counterNumber {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Counter Label */
+.counterLabel {
+  font-size: 14px;
+  opacity: 0.9;
+}

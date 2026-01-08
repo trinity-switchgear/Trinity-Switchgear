@@ -1,0 +1,5 @@
+@import "@/styles/variables.css";
+@import "@/styles/layout.css";
+
+/* page-level spacing */
+main{padding-top:88px} /* header height offset */

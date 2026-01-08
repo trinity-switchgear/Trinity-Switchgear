@@ -1,0 +1,11 @@
+:root{
+  --brand:rgb(6, 6, 101);
+  --accent:#f6b042;
+  --muted:#6b7280;
+  --bg:#f8fafc;
+  --white:#ffffff;
+  --card-shadow: 0 6px 18px rgba(12, 18, 24, 0.06);
+  --max-width:1700px;
+  --radius:10px;
+  --gap:16px;
+}
