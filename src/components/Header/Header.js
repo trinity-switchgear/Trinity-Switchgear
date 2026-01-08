@@ -49,6 +49,7 @@ export default function Header() {
             className={styles.navLink}
             onClick={() => setOpen(false)}
           >
+            
             Contact
           </Link>
 
