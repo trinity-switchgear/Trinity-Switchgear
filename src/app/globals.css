@@ -3,3 +3,7 @@
 
 /* page-level spacing */
 main{padding-top:88px} /* header height offset */
+html {
+  scroll-behavior: smooth;
+}
+

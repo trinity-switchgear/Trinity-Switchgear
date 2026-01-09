@@ -5,7 +5,15 @@ import WhatsAppFloat from "@/components/WhatsAppFloat/WhatsAppFloat";
 
 export const metadata = {
   title: "Trinity Electric Syndicate",
-  description: "100+ years - Switchgear & Electrical Supplier, Kalbadevi, Mumbai"
+  description: "100+ years - Switchgear & Electrical Supplier, Kalbadevi, Mumbai",
+    icons: {
+    icon: [
+      {
+        url: "/icon-light.png",
+        media: "(prefers-color-scheme: dark)",
+      }
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

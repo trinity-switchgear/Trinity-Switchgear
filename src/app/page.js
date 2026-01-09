@@ -204,21 +204,21 @@ export default function Home() {
       </section>
 
       {/* POPULAR CATEGORIES */}
-      <section className="container">
-        <h2 className={styles.mid}>Popular Categories</h2>
+      <section id="our-products" className="container">
+        <h2 className={styles.mid}>Products We Sell</h2>
 
         <div className={styles.categoryGrid}>
-          <a className={styles.categoryCard} href="/products/switchgear">
+          <a className={styles.categoryCard} href="/switchgear">
             Switchgear (MCB, RCCB, MCCB)
           </a>
           <a className={styles.categoryCard} href="/products">
             Cables & Wires
           </a>
           <a className={styles.categoryCard} href="/products">
-            Smart Home Devices
+            PVC Pipes
           </a>
           <a className={styles.categoryCard} href="/products">
-            View all Categories
+            Smart Home Devices
           </a>
         </div>
       </section>
@@ -243,7 +243,7 @@ export default function Home() {
             </div>
 
             <div style={{ marginTop: 12 }} className="card">
-              <h3>Send BOQ</h3>
+              <h3>Send BOQ (Bill of Quantities)</h3>
               <p>
                 Send your BOQ file via WhatsApp or email for a quick quote. We
                 respond quickly to contractor BOQs.

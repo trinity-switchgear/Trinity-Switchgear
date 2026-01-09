@@ -34,7 +34,7 @@ export default function Header() {
           <Link href="/about" className={styles.navLink} onClick={() => setOpen(false)}>
             About
           </Link>
-          <Link href="/products" className={styles.navLink} onClick={() => setOpen(false)}>
+          <Link href="/#our-products" className={styles.navLink} onClick={() => setOpen(false)}>
             Products
           </Link>
           {/* <Link
