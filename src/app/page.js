@@ -211,7 +211,7 @@ export default function Home() {
           <a className={styles.categoryCard} href="/switchgear">
             Switchgear (MCB, RCCB, MCCB)
           </a>
-          <a className={styles.categoryCard} href="/products">
+          <a className={styles.categoryCard} href="/cables-wires">
             Cables & Wires
           </a>
           <a className={styles.categoryCard} href="/products">

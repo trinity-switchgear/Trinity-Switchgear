@@ -1,4 +1,4 @@
-import styles from "./switchgear.module.css";
+import styles from "./product.module.css";
 
 const items = [
   {
