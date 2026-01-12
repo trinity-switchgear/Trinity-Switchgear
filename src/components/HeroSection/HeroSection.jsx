@@ -6,21 +6,21 @@ import styles from "./HeroSection.module.css";
 const heroSlides = [
   {
     image: "/images/banner1.png",
-    title: "100+ Years of Electrical Excellence",
+    title: "100+ Years of Satisfying customers, every single time.",
     overlayImage: "/images/banneroverlay.png",
-    subtitle: "Trusted electrical supplier since 1917",
+    // subtitle: "Trusted electrical supplier since 1917",
   },
   {
     image: "/images/banner2.png",
-    title: "Fast Contractor Deliveries",
+    title: "Bringing you technology that is constantly evolving.",
     overlayImage: "/images/banneroverlay.png",
-    subtitle: "3–4 hour site delivery across Mumbai",
+    // subtitle: "3–4 hour site delivery across Mumbai",
   },
   {
     image: "/images/banner3.png",
-    title: "Genuine Branded Electricals",
+    title: "A reputation for trust. A commitment to customer delight.",
     overlayImage: "/images/banneroverlay.png",
-    subtitle: "Schneider, L&T, Polycab & more",
+    // subtitle: "Schneider, L&T, Polycab & more",
   },
 ];
 

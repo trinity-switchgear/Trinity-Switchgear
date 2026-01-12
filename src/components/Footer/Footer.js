@@ -73,6 +73,7 @@ export default function Footer() {
               <li><a href="mailto:sales@trinityswitchgear.com">Email</a></li>
               <li><a href="https://wa.me/918652859663">WhatsApp</a></li>
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link href="/privacy-policy">Terms & Conditions</Link></li>
             </ul>
           </div>
         </div>

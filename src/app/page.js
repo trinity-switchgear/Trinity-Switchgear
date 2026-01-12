@@ -31,37 +31,8 @@ const featured = [
   },
 ];
 
-const heroSlides = [
-  {
-    image: "/images/banner1.png",
-    title: "100+ Years of Electrical Excellence",
-    overlayImage: "/images/banneroverlay.png", // transparent PNG/SVG
-    subtitle: "Trusted electrical supplier since 1917",
-  },
-  {
-    image: "/images/banner2.png",
-    title: "Fast Contractor Deliveries",
-    overlayImage: "/images/banneroverlay.png", // transparent PNG/SVG
-    subtitle: "3–4 hour site delivery across Mumbai",
-  },
-  {
-    image: "/images/banner3.png",
-    title: "Genuine Branded Electricals",
-    overlayImage: "/images/banneroverlay.png", // transparent PNG/SVG
-    subtitle: "Schneider, L&T, Polycab & more",
-  },
-];
 
 export default function Home() {
-  const [slide, setSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-    }, 9000); // 4 seconds
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
@@ -85,9 +56,9 @@ export default function Home() {
               >
                 Quick Order (WhatsApp)
               </a>
-              <a className="btn btn-ghost" href="/contractors">
+              {/* <a className="btn btn-ghost" href="/contractors">
                 Contractor Solutions
-              </a>
+              </a> */}
             </div>
 
             <div className={styles.heroBadges}>
