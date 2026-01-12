@@ -212,13 +212,13 @@ export default function Home() {
             Switchgear (MCB, RCCB, MCCB)
           </a>
           <a className={styles.categoryCard} href="/cables-wires">
-            Cables & Wires
+            Cables, Wires & Pipes
           </a>
-          <a className={styles.categoryCard} href="/products">
-            PVC Pipes
+          <a className={styles.categoryCard} href="/smart-devices">
+            Smart Devices
           </a>
-          <a className={styles.categoryCard} href="/products">
-            Smart Home Devices
+          <a className={styles.categoryCard} href="/accessories">
+            Other Accessories
           </a>
         </div>
       </section>

@@ -32,12 +32,6 @@ const items = [
     image: "/images/cables/flexible-cable.png",
   },
   {
-    title: "Control Cable (Multi Core)",
-    sku: "TRI-CONTROL",
-    brand: "KEI / Polycab",
-    image: "/images/cables/control-cable.png",
-  },
-  {
     title: "Coaxial Cable",
     sku: "TRI-COAX",
     brand: "Finolex / D-Link",
@@ -49,12 +43,18 @@ const items = [
     brand: "Tata / Jindal",
     image: "/images/cables/earthing.jpeg",
   },
+  {
+    title: "PVC Pipes (LMS/MMS/HMS)",
+    sku: "TRI-CONTROL",
+    brand: "Precision / BLP",
+    image: "/images/cables/pipe.jpeg",
+  },
 ];
 
 export default function CablesWires() {
   return (
     <section className={styles.container}>
-      <h1 className={styles.heading}>Cables & Wires</h1>
+      <h1 className={styles.heading}>Cables, Wires & Pipes</h1>
 
       <div className={styles.grid}>
         {items.map((it) => (
