@@ -1,17 +1,42 @@
 import styles from "../switchgear/product.module.css";
 
 const items = [
+  ,
+  {
+    title: "OHM-IoT enabled smart meters",
+    sku: "TRI-SMART-MOTOR",
+    brand: "Suslab",
+    image: "/images/smart-devices/ohm.jpg",
+  },
+  {
+    title: "Phase Preventer / Phase Failure Relay",
+    sku: "TRI-PHASE-PR",
+    brand: "Selec / L&T / Schneider",
+    image: "/images/smart-devices/phase-preventer.jpg",
+  },
+    {
+    title: "Programmable Logic Controller (PLC)",
+    sku: "TRI-PLC",
+    brand: "Schneider / Siemens",
+    image: "/images/smart-devices/plc.jpg",
+  },
+    {
+    title: "Digital Voltage & Current Monitor",
+    sku: "TRI-VAM",
+    brand: "Selec / Rishabh",
+    image: "/images/smart-devices/voltage-current.jpg",
+  },
+    {
+    title: "Automatic Star Delta Starter",
+    sku: "TRI-STAR-DELTA",
+    brand: "L&T / Schneider",
+    image: "/images/smart-devices/star-delta.jpg",
+  },
   {
     title: "Digital Time Switch / Timer",
     sku: "TRI-TIMER-DIG",
     brand: "Hager / Schneider / L&T",
     image: "/images/smart-devices/timer.png",
-  },
-  {
-    title: "Automatic Star Delta Starter",
-    sku: "TRI-STAR-DELTA",
-    brand: "L&T / Schneider",
-    image: "/images/smart-devices/star-delta.jpg",
   },
   {
     title: "Direct On Line (DOL) Starter",
@@ -20,34 +45,11 @@ const items = [
     image: "/images/smart-devices/dol-starter.jpg",
   },
   {
-    title: "Automatic Changeover with Timer",
+    title: "Automatic Changeover",
     sku: "TRI-ACO-TIMER",
     brand: "L&T / Schneider",
     image: "/images/smart-devices/changeover-timer.jpg",
-  },
-  {
-    title: "Phase Preventer / Phase Failure Relay",
-    sku: "TRI-PHASE-PR",
-    brand: "Selec / L&T / Schneider",
-    image: "/images/smart-devices/phase-preventer.jpg",
-  },
-  {
-    title: "Digital Voltage & Current Monitor",
-    sku: "TRI-VAM",
-    brand: "Selec / Rishabh",
-    image: "/images/smart-devices/voltage-current.jpg",
-  },
-  {
-    title: "Programmable Logic Controller (PLC)",
-    sku: "TRI-PLC",
-    brand: "Schneider / Siemens",
-    image: "/images/smart-devices/plc.jpg",
-  },  {
-    title: "Smart Motor Starter",
-    sku: "TRI-SMART-MOTOR",
-    brand: "Schneider / Siemens",
-    image: "/images/smart-devices/smart-motor-starter.jpeg",
-  },
+  }
 ];
 
 export default function SmartDevices() {

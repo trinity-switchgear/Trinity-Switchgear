@@ -3,7 +3,7 @@ import styles from "./contact.module.css";
 export default function Contact() {
   return (
     <section className="container">
-      <br />
+      <br /><br />
       <h1 className={styles.mid}>Contact Us</h1>
 
       <div className={styles.contactGrid}>

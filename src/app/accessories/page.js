@@ -2,12 +2,6 @@ import styles from "../switchgear/product.module.css";
 
 const items = [
   {
-    title: "Automatic Electric Water Tap (Sensor Tap)",
-    sku: "TRI-ELEC-TAP",
-    brand: "Jaquar / Hindware / Local OEM",
-    image: "/images/accessories/electric-tap.jpg",
-  },
-  {
     title: "LED Indicator Lamp",
     sku: "TRI-LED-IND",
     brand: "Schneider / L&T / Havells",
@@ -44,10 +38,16 @@ const items = [
     image: "/images/accessories/mcb-db.jpg",
   },
   {
-    title: "Panel Cooling Fan & Filter",
-    sku: "TRI-PANEL-FAN",
+    title: "Current Transformer (CT)",
+    sku: "TRI-CT",
     brand: "Rittal / Local Make",
-    image: "/images/accessories/panel-fan.jpg",
+    image: "/images/accessories/ct.jpg",
+  },
+    {
+    title: "Electric Tap",
+    sku: "TRI-ELEC-TAP",
+    brand: "Jaquar / Hindware / Local OEM",
+    image: "/images/accessories/tape.jpg",
   },
 ];
 
