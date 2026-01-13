@@ -2,47 +2,23 @@ import styles from "../switchgear/product.module.css";
 
 const items = [
   {
-    title: "PVC Insulated Copper Wire",
-    sku: "TRI-CU-PVC",
-    brand: "Polycab / Havells / Finolex",
-    image: "/images/cables/copper-wire.jpg",
+    title: "Light Mechanical Strength (LMS) - PVC Pipes",
+    sku: "TRI-CONTROL-LMS",
+    brand: "Precision / BLP",
+    image: "/images/pipes/lms.png",
   },
-  {
-    title: "FR / FRLS House Wiring",
-    sku: "TRI-FR-FRLS",
-    brand: "Polycab / Havells / Anchor",
-    image: "/images/cables/fr-frls.jpeg",
+    {
+    title: "  Medium Mechanical Strength (MMS) - PVC Pipes",
+    sku: "TRI-CONTROL-MMS",
+    brand: "Precision / BLP",
+    image: "/images/pipes/mms.jpeg",
   },
-  {
-    title: "XLPE Armoured Power Cable",
-    sku: "TRI-XLPE-ARM",
-    brand: "Polycab / KEI / Finolex",
-    image: "/images/cables/xlpe-armoured.jpeg",
+    {
+    title: "Heavy Mechanical Strength (HMS) - PVC Pipes",
+    sku: "TRI-CONTROL-HMS",
+    brand: "Precision / BLP",
+    image: "/images/pipes/hms.jpeg",
   },
-  {
-    title: "Aluminium Armoured Cable",
-    sku: "TRI-AL-ARM",
-    brand: "KEI / Universal / Polycab",
-    image: "/images/cables/aluminium-armoured1.png",
-  },
-  {
-    title: "Flexible Copper Cable",
-    sku: "TRI-FLEX-CU",
-    brand: "Polycab / Havells",
-    image: "/images/cables/flexible-cable.png",
-  },
-  {
-    title: "Coaxial Cable",
-    sku: "TRI-COAX",
-    brand: "Finolex / D-Link",
-    image: "/images/cables/coaxial.jpeg",
-  },
-  {
-    title: "Earthing Wire & Strip",
-    sku: "TRI-EARTH",
-    brand: "Tata / Jindal",
-    image: "/images/cables/earthing.jpeg",
-  }
 ];
 
 export default function CablesWires() {

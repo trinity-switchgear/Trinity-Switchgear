@@ -31,13 +31,11 @@ const featured = [
   },
 ];
 
-
 export default function Home() {
-
   return (
     <>
       <HeroSection />
-      <section className={`container ${styles.heroSection}`}>
+      {/* <section className={`container ${styles.heroSection}`}>
         <br />
         <div className={styles.heroGrid}>
           <div className={styles.heroLeft}>
@@ -56,13 +54,10 @@ export default function Home() {
               >
                 Quick Order (WhatsApp)
               </a>
-              {/* <a className="btn btn-ghost" href="/contractors">
-                Contractor Solutions
-              </a> */}
             </div>
 
             <div className={styles.heroBadges}>
-              <div className="card small">Pan India delivery</div>
+              <div className="card small">Pan India delivery</div>git 
               <div className="card small">
                 Trusted by <b>200+ contractors</b>
               </div>
@@ -91,14 +86,16 @@ export default function Home() {
                 <div className={styles.addrLine}>
                   154, Shamaldas Gandhi Marg
                 </div>
-                <div className="small">Kalbadevi, Mumbai 400002</div>
+                <div className="small">Mumbai 400002</div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* BRANDS WE SELL */}
+      <br />
+      <br />
       <section className="container">
         <a className={styles.brandstitle}>Brands We Sell</a>
         <a className={styles.brandssubtitle}>
@@ -107,11 +104,19 @@ export default function Home() {
         </a>
         <div className={styles.brandsGrid}>
           <div className={styles.brandCard}>Schneider Electric</div>
-          <div className={styles.brandCard}>Lauritz Knudsen(L&T)</div>
+          <div className={styles.brandCard}>L&T</div>
           <div className={styles.brandCard}>Legrand</div>
           <div className={styles.brandCard}>Polycab</div>
+          <div className={styles.brandCard}>Trays</div>
+          <div className={styles.brandCard}>APAR</div>
           <div className={styles.brandCard}>Finolex</div>
+          <div className={styles.brandCard}>BLP</div>
           <div className={styles.brandCard}>Siemens</div>
+          <div className={styles.brandCard}>Wika</div>
+          <div className={styles.brandCard}>Indfos</div>
+          <div className={styles.brandCard}>Switzer</div>
+          <div className={styles.brandCard}>EAPL</div>
+          <div className={styles.brandCard}>Danfoss</div>
         </div>
       </section>
 
@@ -183,7 +188,10 @@ export default function Home() {
             Switchgear (MCB, RCCB, MCCB)
           </a>
           <a className={styles.categoryCard} href="/cables-wires">
-            Cables, Wires & Pipes
+            Cables & Wires
+          </a>
+          <a className={styles.categoryCard} href="/pipes">
+            PVC Conduit Pipes
           </a>
           <a className={styles.categoryCard} href="/smart-devices">
             Smart Devices
@@ -201,7 +209,7 @@ export default function Home() {
           <div>
             <div className="card">
               <h3>Visit Us</h3>
-              <div>154, Shamaldas Gandhi Marg, Kalbadevi, Mumbai 400002</div>
+              <div>154, Shamaldas Gandhi Marg, Mumbai 400002</div>
               <div style={{ marginTop: 8 }}>
                 <strong>Phone:</strong> +91 8652859663
               </div>

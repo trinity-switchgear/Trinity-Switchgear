@@ -29,7 +29,7 @@ export default function Footer() {
             <h3>Trinity Electric Syndicate</h3>
             <p>
               154, Shamaldas Gandhi Marg,<br />
-              Kalbadevi, Mumbai 400002
+              Mumbai 400002
             </p>
             <p>GST: 27AAAFT0659G1Z8</p>
 

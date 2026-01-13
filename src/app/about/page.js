@@ -107,7 +107,7 @@ export default function About() {
           <div>
             <div className="card">
               <h3>Visit Us</h3>
-              <div>154, Shamaldas Gandhi Marg, Kalbadevi, Mumbai 400002</div>
+              <div>154, Shamaldas Gandhi Marg, Mumbai 400002</div>
               <div style={{ marginTop: 8 }}>
                 <strong>Phone:</strong> +91 8652859663
               </div>

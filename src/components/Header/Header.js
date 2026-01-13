@@ -22,7 +22,7 @@ export default function Header() {
           <div className={styles.titleWrap}>
             <div className={styles.title}>Trinity Electric Syndicate</div>
             <div className={styles.subtitle}>
-              Kalbadevi · Mumbai · Since 1917
+              Mumbai · Since 1917
             </div>
           </div>
         </div>
