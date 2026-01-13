@@ -4,43 +4,43 @@ const items = [
   {
     title: "PVC Insulated Copper Wire",
     sku: "TRI-CU-PVC",
-    brand: "Polycab / Havells / Finolex",
+    brand: "Polycab, Apar....6+ ",
     image: "/images/cables/copper-wire.jpg",
   },
   {
     title: "FR / FRLS House Wiring",
     sku: "TRI-FR-FRLS",
-    brand: "Polycab / Havells / Anchor",
+    brand: "Polycab, Finolex....6+ ",
     image: "/images/cables/fr-frls.jpeg",
   },
   {
     title: "XLPE Armoured Power Cable",
     sku: "TRI-XLPE-ARM",
-    brand: "Polycab / KEI / Finolex",
+    brand: "Apar, Polycab....6+ ",
     image: "/images/cables/xlpe-armoured.jpeg",
   },
   {
     title: "Aluminium Armoured Cable",
     sku: "TRI-AL-ARM",
-    brand: "KEI / Universal / Polycab",
+    brand: "Polycab, Trays....6+ ",
     image: "/images/cables/aluminium-armoured1.png",
   },
   {
     title: "Flexible Copper Cable",
     sku: "TRI-FLEX-CU",
-    brand: "Polycab / Havells",
+    brand: "Finolex, Apar....6+ ",
     image: "/images/cables/flexible-cable.png",
   },
   {
     title: "Coaxial Cable",
     sku: "TRI-COAX",
-    brand: "Finolex / D-Link",
+    brand: "Apar, Trays....6+ ",
     image: "/images/cables/coaxial.jpeg",
   },
   {
     title: "Earthing Wire & Strip",
     sku: "TRI-EARTH",
-    brand: "Tata / Jindal",
+    brand: "Polycab, Finolex....6+ ",
     image: "/images/cables/earthing.jpeg",
   }
 ];

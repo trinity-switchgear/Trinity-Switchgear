@@ -103,7 +103,7 @@ export default function Home() {
           - Top Brands, Best Prices — Only at Trinity!
         </a>
         <div className={styles.brandsGrid}>
-          <div className={styles.brandCard}>Schneider Electric</div>
+          <div className={styles.brandCard}>Schneider</div>
           <div className={styles.brandCard}>L&T</div>
           <div className={styles.brandCard}>Legrand</div>
           <div className={styles.brandCard}>Polycab</div>
