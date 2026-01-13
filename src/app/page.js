@@ -171,7 +171,7 @@ export default function Home() {
           </div>
 
           <div className={styles.trustCard}>
-            <h4>✔ 200+ Contractor Clients</h4>
+            <h4>✔ 2000+ Contractor Clients</h4>
             <p>
               Trusted by leading builders, electricians and panel contractors.
             </p>
@@ -211,7 +211,7 @@ export default function Home() {
               <h3>Visit Us</h3>
               <div>154, Shamaldas Gandhi Marg, Mumbai 400002</div>
               <div style={{ marginTop: 8 }}>
-                <strong>Phone:</strong> +91 8652859663
+                <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91 2222014201
               </div>
               <div>
                 <strong>Email:</strong> sales@trinityswitchgear.com

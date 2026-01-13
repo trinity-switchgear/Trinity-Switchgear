@@ -59,24 +59,12 @@
 
 /* Bottom text */
 .bottomLine {
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
   padding-top: 15px;
   font-size: 13px;
   opacity: 0.75;
 }
-
-/* Responsive */
-@media (max-width: 600px) {
-  .footer {
-    padding: 32px 0 16px;
-  }
-
-  .brand h3 {
-    font-size: 18px;
-  }
-}
-
 
 /* Counter Grid */
 .counterGrid {
@@ -86,7 +74,6 @@
   flex-wrap: wrap;
 }
 
-/* Individual Counter Card */
 .counterCard {
   background: rgb(83, 83, 226);
   color: #fff;
@@ -94,29 +81,64 @@
   border-radius: 12px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .counterCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
 
-/* Counter Icon */
 .counterIcon {
   font-size: 28px;
 }
 
-/* Counter Number */
 .counterNumber {
   font-weight: 700;
   font-size: 20px;
 }
 
-/* Counter Label */
 .counterLabel {
   font-size: 14px;
   opacity: 0.9;
+}
+
+/* ✅ MOBILE FIX */
+@media (max-width: 600px) {
+  .counterCard{
+      width: 250px;
+  }
+  .counterIcon {
+  font-size: 34px;
+}
+.counterNumber {
+  font-weight: 700;
+  font-size: 24px;
+}
+  .brand p {
+    text-align: center;
+  }
+  .counterGrid {
+    justify-content: center;
+  }
+  .footer {
+    padding: 32px 0 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr; /* Quick Links & Support side-by-side */
+    gap: 20px;
+  }
+
+  .brand {
+    grid-column: 1 / -1; /* Brand full width */
+    justify-items: center;
+  }
+
+  .brand h3 {
+    font-size: 18px;
+  }
 }
