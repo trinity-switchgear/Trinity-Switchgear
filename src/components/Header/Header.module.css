@@ -1,5 +1,4 @@
 /* ================= HEADER ================= */
-
 .header {
   position: fixed;
   top: 0;
@@ -9,11 +8,40 @@
   border: 2px solid #edf0f4;
   z-index: 60;
   padding: 20px 30px;
-  max-width:1600px !important;
+  max-width: 1600px !important;
+}
+
+/* ================= ADMIN ================= */
+.adminWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 200;
+}
+
+.adminName {
+  font-weight: 600;
+  color: #000;
+  cursor: default;
+}
+
+.logoutBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background: #b02a37;
 }
 
 /* ================= CONTAINER ================= */
-
 .containers {
   max-width: 1500px;
   margin: 0 auto;
@@ -22,12 +50,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  position: relative; /* keeps hamburger inside */
+  position: relative;
 }
 
-
 /* ================= BRAND ================= */
-
 .brand {
   display: flex;
   align-items: center;
@@ -66,7 +92,6 @@
 }
 
 /* ================= NAV ================= */
-
 .nav {
   display: flex;
   align-items: center;
@@ -101,19 +126,18 @@
   transform: translateY(-2px);
 }
 
-/* ================= HAMBURGER MENU ================= */
-
+/* ================= HAMBURGER ================= */
 .mobileBtn {
   display: none;
   background: none;
   border: none;
   padding: 12px;
   cursor: pointer;
+  z-index: 150;
 }
 
-/* Middle line */
 .ham {
-  display: block;              /* 🔥 IMPORTANT */
+  display: block;
   width: 28px;
   height: 3px;
   background: #111;
@@ -121,11 +145,10 @@
   border-radius: 2px;
 }
 
-/* Top & bottom lines */
 .ham::before,
 .ham::after {
   content: "";
-  display: block;              /* 🔥 IMPORTANT */
+  display: block;
   position: absolute;
   width: 28px;
   height: 3px;
@@ -142,27 +165,19 @@
   top: 8px;
 }
 
-
 /* ================= RESPONSIVE ================= */
-
 @media (max-width: 1100px) {
-.brand {
-  gap: 14px;
-}
+  .brand {
+    gap: 14px;
+  }
 
-.title {
-  font-weight: 700;
-  color: var(--brand);
-  font-size: clamp(18px, 2.2vw, 28px);
-  white-space: nowrap;
-}
+  .title {
+    font-size: clamp(18px, 2.2vw, 28px);
+  }
 
-.subtitle {
-  font-size: clamp(12px, 1.3vw, 16px);
-  color: var(--muted);
-  font-weight: 500;
-}
-
+  .subtitle {
+    font-size: clamp(12px, 1.3vw, 16px);
+  }
 
   .logo {
     height: 50px;
@@ -174,25 +189,40 @@
     top: 100%;
     right: 0;
     margin-top: 12px;
-
     flex-direction: column;
     background: var(--white);
     padding: 16px;
     border-radius: 12px;
     box-shadow: var(--card-shadow);
-
     display: none;
-    min-width: 220px;
+    min-width: 240px;
+    z-index: 100;
   }
 
   .nav.open {
     display: flex;
   }
 
-@media (max-width: 1100px) {
+  /* Admin info adjustments for mobile */
+  .adminWrap {
+    gap: 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .adminName {
+    display: none; /* hide admin name on mobile */
+  }
+
+  .logoutBtn {
+    padding: 8px 12px;
+    font-size: 14px;
+    display: block;
+  }
+
   .mobileBtn {
     display: block;
   }
-}
-
 }
