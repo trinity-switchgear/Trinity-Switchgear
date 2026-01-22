@@ -34,10 +34,14 @@ export default function Header() {
   }, [pathname]);
 
   function handleLogout() {
+    // Remove authentication info
     localStorage.removeItem("adminAuth");
     localStorage.removeItem("adminName");
+    localStorage.removeItem("token"); // <-- remove JWT token
+
     setIsAuth(false);
-    router.push("/login");
+    setAdminName("");
+    router.push("/login"); // redirect to login page
   }
 
   const isAdminPage = isAuth && pathname.startsWith("/broadcast");

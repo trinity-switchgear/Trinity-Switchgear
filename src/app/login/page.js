@@ -29,13 +29,13 @@ export default function Login() {
 
       if (res.ok && data.success) {
         // Save JWT token in localStorage
-        localStorage.setItem("token", data.token); // <-- JWT token
+        localStorage.setItem("token", data.token); // JWT token
         localStorage.setItem("adminName", data.name || "Admin");
 
         // Redirect to broadcast page
         router.push("/broadcast");
       } else {
-        setError("❌ Invalid username or password");
+        setError(data.message || "❌ Invalid username or password");
       }
     } catch (err) {
       console.error(err);
