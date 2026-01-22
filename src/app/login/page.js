@@ -10,19 +10,33 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // 🔐 Change credentials
-    const ADMIN_USER = "admin";
-    const ADMIN_PASS = "trinity123";
+    try {
+      const res = await fetch("http://localhost:4000/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (username === ADMIN_USER && password === ADMIN_PASS) {
-      localStorage.setItem("adminAuth", "true");
-      localStorage.setItem("adminName", "Anuj");
-      router.push("/broadcast");
-    } else {
-      setError("❌ Invalid username or password");
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        // Save auth info in localStorage
+        localStorage.setItem("adminAuth", "true");
+        localStorage.setItem("adminName", data.name || "Admin");
+
+        // Redirect to broadcast page
+        router.push("/broadcast");
+      } else {
+        setError("❌ Invalid username or password");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("❌ Something went wrong. Try again later.");
     }
   };
 
@@ -38,6 +52,7 @@ export default function Login() {
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
 
           <input
@@ -46,6 +61,7 @@ export default function Login() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
 
           {error && <p className={styles.error}>{error}</p>}
