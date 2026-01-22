@@ -36,7 +36,7 @@ export default function Broadcast() {
     setSentCount(0);
     setTotalCount(0);
 
-    const res = await fetch("http://localhost:4000/broadcast", {
+    const res = await fetch("https://trinity-broadcast-backend.onrender.com/broadcast", {
       method: "POST",
       body: formData,
       cache: "no-store",
@@ -104,25 +104,25 @@ export default function Broadcast() {
   }
 
   async function getCount(target) {
-    const res = await fetch(`http://localhost:4000/count?target=${target}`);
+    const res = await fetch(`https://trinity-broadcast-backend.onrender.com/count?target=${target}`);
     const data = await res.json();
     setCount(data.count);
   }
 
   async function pauseBroadcast() {
-    await fetch("http://localhost:4000/broadcast/pause", { method: "POST" });
+    await fetch("https://trinity-broadcast-backend.onrender.com/broadcast/pause", { method: "POST" });
     setIsPaused(true);
     setStatus(`⏸ Broadcast Paused: ${sentCount}/${totalCount}`);
   }
 
   async function resumeBroadcast() {
-    await fetch("http://localhost:4000/broadcast/resume", { method: "POST" });
+    await fetch("https://trinity-broadcast-backend.onrender.com/broadcast/resume", { method: "POST" });
     setIsPaused(false);
     setStatus(`▶ Broadcast Resumed: ${sentCount}/${totalCount}`);
   }
 
   async function stopBroadcast() {
-    await fetch("http://localhost:4000/broadcast/stop", { method: "POST" });
+    await fetch("https://trinity-broadcast-backend.onrender.com/broadcast/stop", { method: "POST" });
     setIsRunning(false);
     setIsPaused(false);
     setStatus(`⏹ Broadcast Stopped: ${sentCount}/${totalCount}`);
