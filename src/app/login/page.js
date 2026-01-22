@@ -14,19 +14,22 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://trinity-broadcast-backend.onrender.com/admin/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://trinity-broadcast-backend.onrender.com/admin/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
         },
-        body: JSON.stringify({ username, password }),
-      });
+      );
 
       const data = await res.json();
 
       if (res.ok && data.success) {
-        // Save auth info in localStorage
-        localStorage.setItem("adminAuth", "true");
+        // Save JWT token in localStorage
+        localStorage.setItem("token", data.token); // <-- JWT token
         localStorage.setItem("adminName", data.name || "Admin");
 
         // Redirect to broadcast page

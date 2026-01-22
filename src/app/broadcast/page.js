@@ -8,9 +8,10 @@ export default function Broadcast() {
   const router = useRouter();
   const logRef = useRef(null);
 
+  // Check JWT token
   useEffect(() => {
-    const isAuth = localStorage.getItem("adminAuth");
-    if (!isAuth) router.push("/login");
+    const token = localStorage.getItem("token");
+    if (!token) router.push("/login"); // redirect if no token
   }, [router]);
 
   const [status, setStatus] = useState("Ready");
@@ -19,10 +20,10 @@ export default function Broadcast() {
   const [log, setLog] = useState([]);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-
-  // 🔥 NEW STATE
   const [sentCount, setSentCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+
+  const token = localStorage.getItem("token");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -36,11 +37,17 @@ export default function Broadcast() {
     setSentCount(0);
     setTotalCount(0);
 
-    const res = await fetch("https://trinity-broadcast-backend.onrender.com/broadcast", {
-      method: "POST",
-      body: formData,
-      cache: "no-store",
-    });
+    const res = await fetch(
+      "https://trinity-broadcast-backend.onrender.com/broadcast",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`, // JWT token
+        },
+        body: formData,
+        cache: "no-store",
+      },
+    );
 
     if (!res.body) {
       setStatus("❌ No response from server");
@@ -104,25 +111,51 @@ export default function Broadcast() {
   }
 
   async function getCount(target) {
-    const res = await fetch(`https://trinity-broadcast-backend.onrender.com/count?target=${target}`);
+    if (!target) return;
+    const res = await fetch(
+      `https://trinity-broadcast-backend.onrender.com/count?target=${target}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
     const data = await res.json();
     setCount(data.count);
   }
 
   async function pauseBroadcast() {
-    await fetch("https://trinity-broadcast-backend.onrender.com/broadcast/pause", { method: "POST" });
+    await fetch(
+      "https://trinity-broadcast-backend.onrender.com/broadcast/pause",
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     setIsPaused(true);
     setStatus(`⏸ Broadcast Paused: ${sentCount}/${totalCount}`);
   }
 
   async function resumeBroadcast() {
-    await fetch("https://trinity-broadcast-backend.onrender.com/broadcast/resume", { method: "POST" });
+    await fetch(
+      "https://trinity-broadcast-backend.onrender.com/broadcast/resume",
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     setIsPaused(false);
     setStatus(`▶ Broadcast Resumed: ${sentCount}/${totalCount}`);
   }
 
   async function stopBroadcast() {
-    await fetch("https://trinity-broadcast-backend.onrender.com/broadcast/stop", { method: "POST" });
+    await fetch(
+      "https://trinity-broadcast-backend.onrender.com/broadcast/stop",
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     setIsRunning(false);
     setIsPaused(false);
     setStatus(`⏹ Broadcast Stopped: ${sentCount}/${totalCount}`);
