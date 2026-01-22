@@ -8,12 +8,6 @@ export default function Broadcast() {
   const router = useRouter();
   const logRef = useRef(null);
 
-  // Check JWT token
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) router.push("/login"); // redirect if no token
-  }, [router]);
-
   const [status, setStatus] = useState("Ready");
   const [progress, setProgress] = useState(0);
   const [count, setCount] = useState(0);
@@ -23,7 +17,13 @@ export default function Broadcast() {
   const [sentCount, setSentCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
 
+  // 🔑 JWT Token
   const token = localStorage.getItem("token");
+
+  // Redirect if no token
+  useEffect(() => {
+    if (!token) router.push("/login");
+  }, [router, token]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -37,91 +37,104 @@ export default function Broadcast() {
     setSentCount(0);
     setTotalCount(0);
 
-    const res = await fetch(
-      "https://trinity-broadcast-backend.onrender.com/broadcast",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`, // JWT token
+    try {
+      const res = await fetch(
+        "https://trinity-broadcast-backend.onrender.com/broadcast",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+          cache: "no-store",
         },
-        body: formData,
-        cache: "no-store",
-      },
-    );
+      );
 
-    if (!res.body) {
-      setStatus("❌ No response from server");
-      return;
-    }
+      if (!res.body) {
+        setStatus("❌ No response from server");
+        return;
+      }
 
-    const reader = res.body.getReader();
-    const decoder = new TextDecoder();
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
 
-    let sent = 0,
-      total = 0;
+      let sent = 0,
+        total = 0;
 
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
 
-      const chunk = decoder.decode(value, { stream: true });
-      const lines = chunk.split("\n").filter(Boolean);
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split("\n").filter(Boolean);
 
-      lines.forEach((line) => {
-        const data = JSON.parse(line.replace("data: ", ""));
+        for (const line of lines) {
+          const data = JSON.parse(line.replace("data: ", ""));
 
-        if (data.sent !== undefined) {
-          sent = data.sent;
-          total = data.total;
+          if (data.sent !== undefined) {
+            sent = data.sent;
+            total = data.total;
+            setSentCount(sent);
+            setTotalCount(total);
+            setProgress((sent / total) * 100);
+            setStatus(`Sending ${sent} / ${total}`);
 
-          setSentCount(sent);
-          setTotalCount(total);
+            if (data.jid) {
+              setLog((prev) => [
+                ...prev,
+                { jid: data.jid, success: data.success },
+              ]);
+            }
+          }
 
-          setProgress((sent / total) * 100);
-          setStatus(`Sending ${sent} / ${total}`);
+          if (data.done) {
+            setStatus(`✅ Broadcast Completed: ${sent}/${total}`);
+            setProgress(100);
+            setIsRunning(false);
+            setIsPaused(false);
+          }
 
-          if (data.jid) {
-            setLog((prev) => [
-              ...prev,
-              { jid: data.jid, success: data.success },
-            ]);
+          if (data.stopped) {
+            setStatus(`⏹ Broadcast Stopped: ${sent}/${total}`);
+            setIsRunning(false);
+            setIsPaused(false);
+          }
+
+          if (data.error) {
+            setStatus(`❌ ${data.error}`);
+            setIsRunning(false);
+            setIsPaused(false);
           }
         }
-
-        if (data.stopped) {
-          setStatus(`⏹ Broadcast Stopped: ${sent}/${total}`);
-          setIsRunning(false);
-          setIsPaused(false);
-        }
-
-        if (data.done) {
-          setStatus(`✅ Broadcast Completed: ${sent}/${total}`);
-          setProgress(100);
-          setIsRunning(false);
-          setIsPaused(false);
-        }
-
-        if (data.error) {
-          setStatus(data.error);
-          setIsRunning(false);
-          setIsPaused(false);
-        }
-      });
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("❌ Something went wrong while broadcasting");
+      setIsRunning(false);
+      setIsPaused(false);
     }
   }
 
   async function getCount(target) {
     if (!target) return;
-    const res = await fetch(
-      `https://trinity-broadcast-backend.onrender.com/count?target=${target}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+    try {
+      const res = await fetch(
+        `https://trinity-broadcast-backend.onrender.com/count?target=${target}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
         },
-      },
-    );
-    const data = await res.json();
-    setCount(data.count);
+      );
+      if (res.status === 401 || res.status === 403) {
+        localStorage.removeItem("token");
+        router.push("/login");
+        return;
+      }
+      const data = await res.json();
+      setCount(data.count);
+    } catch (err) {
+      console.error(err);
+      setCount(0);
+    }
   }
 
   async function pauseBroadcast() {
@@ -163,9 +176,7 @@ export default function Broadcast() {
 
   // Auto-scroll log
   useEffect(() => {
-    if (logRef.current) {
-      logRef.current.scrollTop = logRef.current.scrollHeight;
-    }
+    if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight;
   }, [log]);
 
   return (
