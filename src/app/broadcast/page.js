@@ -117,28 +117,14 @@ export default function Broadcast() {
   async function getCount(target) {
     if (!target || !token) return;
 
-    try {
-      const res = await fetch(
-        `https://waitressless-shemika-unwitting.ngrok-free.dev/count?target=${encodeURIComponent(target)}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
-
-      const text = await res.text();
-
-      // 🔐 ngrok or server error protection
-      if (!res.ok || text.startsWith("<!DOCTYPE")) {
-        console.error("Non-JSON response:", text);
-        throw new Error("Server did not return JSON");
-      }
-
-      const data = JSON.parse(text);
-      setCount(data.count);
-    } catch (err) {
-      console.error("Count API error:", err.message);
-      setCount(0); // fallback
-    }
+    const res = await fetch(
+      `https://waitressless-shemika-unwitting.ngrok-free.dev/count?target=${target}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+    const data = await res.json();
+    setCount(data.count);
   }
 
   async function pauseBroadcast() {
