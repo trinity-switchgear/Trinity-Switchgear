@@ -20,10 +20,19 @@ export default function Broadcast() {
   // 🔑 JWT Token
   const token = localStorage.getItem("token");
 
-  // Redirect if no token
+  // Redirect if no valid token
   useEffect(() => {
-    if (!token) router.push("/login");
+    if (!token) {
+      router.push("/login");
+    }
   }, [router, token]);
+
+  // Helper to handle 401/403 errors and redirect
+  function handleAuthError() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("adminName");
+    router.push("/login");
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -42,14 +51,12 @@ export default function Broadcast() {
         "https://trinity-broadcast-backend.onrender.com/broadcast",
         {
           method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
           body: formData,
-          cache: "no-store",
         },
       );
 
+      if (res.status === 401 || res.status === 403) return handleAuthError();
       if (!res.body) {
         setStatus("❌ No response from server");
         return;
@@ -120,15 +127,9 @@ export default function Broadcast() {
     try {
       const res = await fetch(
         `https://trinity-broadcast-backend.onrender.com/count?target=${target}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
+        { headers: { Authorization: `Bearer ${token}` } },
       );
-      if (res.status === 401 || res.status === 403) {
-        localStorage.removeItem("token");
-        router.push("/login");
-        return;
-      }
+      if (res.status === 401 || res.status === 403) return handleAuthError();
       const data = await res.json();
       setCount(data.count);
     } catch (err) {
@@ -140,10 +141,7 @@ export default function Broadcast() {
   async function pauseBroadcast() {
     await fetch(
       "https://trinity-broadcast-backend.onrender.com/broadcast/pause",
-      {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-      },
+      { method: "POST", headers: { Authorization: `Bearer ${token}` } },
     );
     setIsPaused(true);
     setStatus(`⏸ Broadcast Paused: ${sentCount}/${totalCount}`);
@@ -152,10 +150,7 @@ export default function Broadcast() {
   async function resumeBroadcast() {
     await fetch(
       "https://trinity-broadcast-backend.onrender.com/broadcast/resume",
-      {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-      },
+      { method: "POST", headers: { Authorization: `Bearer ${token}` } },
     );
     setIsPaused(false);
     setStatus(`▶ Broadcast Resumed: ${sentCount}/${totalCount}`);
@@ -164,17 +159,13 @@ export default function Broadcast() {
   async function stopBroadcast() {
     await fetch(
       "https://trinity-broadcast-backend.onrender.com/broadcast/stop",
-      {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-      },
+      { method: "POST", headers: { Authorization: `Bearer ${token}` } },
     );
     setIsRunning(false);
     setIsPaused(false);
     setStatus(`⏹ Broadcast Stopped: ${sentCount}/${totalCount}`);
   }
 
-  // Auto-scroll log
   useEffect(() => {
     if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight;
   }, [log]);

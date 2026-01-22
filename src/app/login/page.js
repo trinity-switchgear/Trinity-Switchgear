@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./admin-login.module.css";
 
@@ -10,17 +10,22 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // ✅ Redirect if already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) router.push("/broadcast");
+  }, [router]);
+
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
 
     try {
       const res = await fetch(
         "https://trinity-broadcast-backend.onrender.com/admin/login",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username, password }),
         },
       );
@@ -28,11 +33,8 @@ export default function Login() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        // Save JWT token in localStorage
-        localStorage.setItem("token", data.token); // JWT token
+        localStorage.setItem("token", data.token);
         localStorage.setItem("adminName", data.name || "Admin");
-
-        // Redirect to broadcast page
         router.push("/broadcast");
       } else {
         setError(data.message || "❌ Invalid username or password");

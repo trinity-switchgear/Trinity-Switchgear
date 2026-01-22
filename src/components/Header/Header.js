@@ -13,35 +13,27 @@ export default function Header() {
   const pathname = usePathname();
 
   function syncAuth() {
-    const auth = localStorage.getItem("adminAuth");
+    const token = localStorage.getItem("token");
     const name = localStorage.getItem("adminName");
 
-    if (auth) {
+    if (token) {
       setIsAuth(true);
-      setAdminName(name || "Anuj");
+      setAdminName(name || "Admin");
     } else {
       setIsAuth(false);
       setAdminName("");
     }
   }
 
-  useEffect(() => {
-    syncAuth();
-  }, []);
-
-  useEffect(() => {
-    syncAuth();
-  }, [pathname]);
+  useEffect(() => syncAuth(), []);
+  useEffect(() => syncAuth(), [pathname]);
 
   function handleLogout() {
-    // Remove authentication info
-    localStorage.removeItem("adminAuth");
+    localStorage.removeItem("token");
     localStorage.removeItem("adminName");
-    localStorage.removeItem("token"); // <-- remove JWT token
-
     setIsAuth(false);
     setAdminName("");
-    router.push("/login"); // redirect to login page
+    router.push("/login");
   }
 
   const isAdminPage = isAuth && pathname.startsWith("/broadcast");
@@ -49,7 +41,6 @@ export default function Header() {
   return (
     <header className={`container ${styles.header}`}>
       <div className={styles.containers}>
-        {/* Brand / Logo */}
         <div className={styles.brand}>
           {isAdminPage ? (
             <div className={styles.logoLocked}>
@@ -79,7 +70,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Navigation Links */}
         <nav className={`${styles.nav} ${open ? styles.open : ""}`}>
           {!isAdminPage && (
             <>
@@ -121,7 +111,6 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Admin Info / Logout - Always visible */}
         {isAuth && (
           <div className={styles.adminWrap}>
             <span className={styles.adminName}>👤 {adminName}</span>
@@ -131,7 +120,6 @@ export default function Header() {
           </div>
         )}
 
-        {/* Hamburger */}
         {!isAdminPage && (
           <button
             className={styles.mobileBtn}
