@@ -120,7 +120,11 @@ export default function Broadcast() {
     const res = await fetch(
       `https://waitressless-shemika-unwitting.ngrok-free.dev/count?target=${target}`,
       {
-        headers: { Authorization: `Bearer ${token}` },
+        method: "GET",
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          Authorization: `Bearer ${token}`,
+        },
       },
     );
     const data = await res.json();
