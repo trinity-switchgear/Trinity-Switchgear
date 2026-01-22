@@ -22,7 +22,7 @@ export default function Login() {
 
     try {
       const res = await fetch(
-        "https://trinity-broadcast-backend.onrender.com/admin/login",
+        "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
