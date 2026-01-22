@@ -43,7 +43,7 @@ export default function Broadcast() {
     setTotalCount(0);
 
     const res = await fetch(
-      "https://trinity-broadcast-backend.onrender.com/broadcast",
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/broadcast",
       {
         method: "POST",
         headers: {
@@ -118,7 +118,7 @@ export default function Broadcast() {
     if (!target || !token) return;
 
     const res = await fetch(
-      `https://trinity-broadcast-backend.onrender.com/count?target=${target}`,
+      `https://waitressless-shemika-unwitting.ngrok-free.dev/count?target=${target}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       },
@@ -129,7 +129,7 @@ export default function Broadcast() {
 
   async function pauseBroadcast() {
     await fetch(
-      "https://trinity-broadcast-backend.onrender.com/broadcast/pause",
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/broadcast/pause",
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -140,7 +140,7 @@ export default function Broadcast() {
 
   async function resumeBroadcast() {
     await fetch(
-      "https://trinity-broadcast-backend.onrender.com/broadcast/resume",
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/broadcast/resume",
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -151,7 +151,7 @@ export default function Broadcast() {
 
   async function stopBroadcast() {
     await fetch(
-      "https://trinity-broadcast-backend.onrender.com/broadcast/stop",
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/broadcast/stop",
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
