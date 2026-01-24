@@ -1,35 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import styles from "./page.module.css"; // ✅ keep this
-
-const featured = [
-  {
-    slug: "schneider-mcb-16a",
-    title: "Schneider MCB 16A",
-    short: "Reliable single pole MCB",
-    brand: "Schneider",
-    price: "₹350",
-    image: "/images/product-placeholder.jpg",
-  },
-  {
-    slug: "havells-rccb-2p-63a",
-    title: "Havells RCCB 63A",
-    short: "Earth leakage protection",
-    brand: "Havells",
-    price: "₹1800",
-    image: "/images/product-placeholder.jpg",
-  },
-  {
-    slug: "polycab-3c-2.5",
-    title: "Polycab 3C 2.5mm",
-    short: "3-core copper conductor",
-    brand: "Polycab",
-    price: "₹40/m",
-    image: "/images/product-placeholder.jpg",
-  },
-];
 
 export default function Home() {
   return (
