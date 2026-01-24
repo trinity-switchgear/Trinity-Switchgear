@@ -1,7 +1,12 @@
-"use client";
-
 import HeroSection from "@/components/HeroSection/HeroSection";
 import styles from "./page.module.css"; // ✅ keep this
+
+export const metadata = {
+  title:
+    "Trinity Electric Syndicate | Electrical & Switchgear Supplier in India",
+  description:
+    "Trinity Electric Syndicate is a leading electrical and switchgear supplier across India and a trusted exporter worldwide. We deal in MCB, MCCB, RCBO, relays, timers, starters, cables, wires & accessories.",
+};
 
 export default function Home() {
   return (
@@ -183,7 +188,8 @@ export default function Home() {
               <h3>Visit Us</h3>
               <div>154, Shamaldas Gandhi Marg, Mumbai 400002</div>
               <div style={{ marginTop: 8 }}>
-                <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91 2222014201
+                <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91
+                2222014201
               </div>
               <div>
                 <strong>Email:</strong> sales@trinityswitchgear.com

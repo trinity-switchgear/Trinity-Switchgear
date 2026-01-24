@@ -1,5 +1,11 @@
 import styles from "../page.module.css"; // ✅ keep this
 
+export const metadata = {
+  title: "Privacy Policy | Trinity Electric Syndicate",
+  description:
+    "Read the privacy policy of Trinity Electric Syndicate. Learn how we collect, use and protect your information when you visit our website.",
+};
+
 export default function Contact() {
   return (
     <section className="container">
@@ -91,7 +97,8 @@ export default function Contact() {
             <h3>Visit Us</h3>
             <div>154, Shamaldas Gandhi Marg, Mumbai 400002</div>
             <div style={{ marginTop: 8 }}>
-              <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91 2222014201
+              <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91
+              2222014201
             </div>
             <div>
               <strong>Email:</strong> sales@trinityswitchgear.com

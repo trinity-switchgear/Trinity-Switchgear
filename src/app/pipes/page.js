@@ -1,5 +1,12 @@
 import styles from "../switchgear/product.module.css";
 
+export const metadata = {
+  title:
+    "Electrical Pipes & Conduits Supplier & Exporter from India | Trinity Electric",
+  description:
+    "Trinity Electric Syndicate supplies electrical pipes and conduits across India and exports globally for safe and reliable wiring installations.",
+};
+
 const items = [
   {
     title: "Light Mechanical Strength (LMS) - PVC Pipes",
@@ -7,13 +14,13 @@ const items = [
     brand: "Precision / BLP",
     image: "/images/pipes/lms.png",
   },
-    {
+  {
     title: "  Medium Mechanical Strength (MMS) - PVC Pipes",
     sku: "TRI-CONTROL-MMS",
     brand: "Precision / BLP",
     image: "/images/pipes/mms.jpeg",
   },
-    {
+  {
     title: "Heavy Mechanical Strength (HMS) - PVC Pipes",
     sku: "TRI-CONTROL-HMS",
     brand: "Precision / BLP",
@@ -42,7 +49,7 @@ export default function CablesWires() {
               <a
                 className={styles.btnprimary}
                 href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
-                  it.title
+                  it.title,
                 )}`}
               >
                 Enquire on WhatsApp

@@ -18,7 +18,7 @@ const heroSlides = [
   },
   {
     image: "/images/banner3.png",
-    title: "A reputation for trust. A commitment to customer delight.",
+    title: "Best Switchgear & Electrical Products Supplier.",
     overlayImage: "/images/banneroverlay.png",
     // subtitle: "Schneider, L&T, Polycab & more",
   },

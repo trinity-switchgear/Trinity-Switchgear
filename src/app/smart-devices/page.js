@@ -1,7 +1,13 @@
 import styles from "../switchgear/product.module.css";
 
+export const metadata = {
+  title:
+    "Smart Electrical Devices (IoT) Supplier & Exporter from India | Trinity Electric",
+  description:
+    "Trinity Electric Syndicate supplies smart electrical devices (IoT) and automation products across India and exports globally for modern homes and industries.",
+};
+
 const items = [
-  ,
   {
     title: "OHM-IoT enabled smart meters",
     sku: "TRI-SMART-MOTOR",
@@ -14,19 +20,19 @@ const items = [
     brand: "L&T, Schneider....12+",
     image: "/images/smart-devices/phase-preventer.jpg",
   },
-    {
+  {
     title: "Programmable Logic Controller (PLC)",
     sku: "TRI-PLC",
     brand: "L&T, Schneider....12+",
     image: "/images/smart-devices/plc.jpg",
   },
-    {
+  {
     title: "Digital Voltage & Current Monitor",
     sku: "TRI-VAM",
     brand: "Siemens, Schneider....12+",
     image: "/images/smart-devices/voltage-current.jpg",
   },
-    {
+  {
     title: "Automatic Star Delta Starter",
     sku: "TRI-STAR-DELTA",
     brand: "L&T, Schneider....12+",
@@ -49,7 +55,7 @@ const items = [
     sku: "TRI-ACO-TIMER",
     brand: "L&T, Schneider....12+",
     image: "/images/smart-devices/changeover-timer.jpg",
-  }
+  },
 ];
 
 export default function SmartDevices() {
@@ -73,7 +79,7 @@ export default function SmartDevices() {
               <a
                 className={styles.btnprimary}
                 href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
-                  it.title
+                  it.title,
                 )}`}
               >
                 Enquire on WhatsApp

@@ -1,5 +1,12 @@
 import styles from "../switchgear/product.module.css";
 
+export const metadata = {
+  title:
+    "Electrical Accessories Supplier & Exporter from India | Trinity Electric",
+  description:
+    "Trinity Electric Syndicate supplies high-quality electrical accessories across India and exports globally. We offer industrial and commercial electrical components for all applications.",
+};
+
 const items = [
   {
     title: "LED Indicator Lamp",
@@ -43,7 +50,7 @@ const items = [
     brand: "Rittal / Local Make",
     image: "/images/accessories/ct.jpg",
   },
-    {
+  {
     title: "Electric Tap",
     sku: "TRI-ELEC-TAP",
     brand: "Jaquar / Hindware / Local OEM",
@@ -72,7 +79,7 @@ export default function CablesWires() {
               <a
                 className={styles.btnprimary}
                 href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
-                  it.title
+                  it.title,
                 )}`}
               >
                 Enquire on WhatsApp

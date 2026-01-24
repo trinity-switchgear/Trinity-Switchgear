@@ -1,5 +1,11 @@
 import styles from "../switchgear/product.module.css";
 
+export const metadata = {
+  title: "Cables & Wires Supplier & Exporter from India | Trinity Electric",
+  description:
+    "Trinity Electric Syndicate is a leading cables and wires supplier across India and a trusted exporter worldwide. We provide electrical wiring solutions for residential, commercial & industrial use.",
+};
+
 const items = [
   {
     title: "PVC Insulated Copper Wire",
@@ -42,7 +48,7 @@ const items = [
     sku: "TRI-EARTH",
     brand: "Polycab, Finolex....6+ ",
     image: "/images/cables/earthing.jpeg",
-  }
+  },
 ];
 
 export default function CablesWires() {
@@ -66,7 +72,7 @@ export default function CablesWires() {
               <a
                 className={styles.btnprimary}
                 href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
-                  it.title
+                  it.title,
                 )}`}
               >
                 Enquire on WhatsApp

@@ -1,5 +1,12 @@
 import styles from "./about.module.css";
 
+export const metadata = {
+  title:
+    "About Trinity Electric Syndicate | Electrical Products Supplier & Exporter",
+  description:
+    "Learn about Trinity Electric Syndicate – a trusted electrical and switchgear products supplier across India and a global exporter serving industries, contractors and infrastructure projects.",
+};
+
 export default function About() {
   return (
     <>
@@ -109,7 +116,8 @@ export default function About() {
               <h3>Visit Us</h3>
               <div>154, Shamaldas Gandhi Marg, Mumbai 400002</div>
               <div style={{ marginTop: 8 }}>
-                <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91 2222014201
+                <strong>Phone:</strong> +91 8652859663 / +91 2240181818 / +91
+                2222014201
               </div>
               <div>
                 <strong>Email:</strong> sales@trinityswitchgear.com
@@ -146,7 +154,6 @@ export default function About() {
           </div>
         </div>
       </section>
-      
     </>
   );
 }

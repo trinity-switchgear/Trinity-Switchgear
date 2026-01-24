@@ -1,5 +1,12 @@
 import styles from "./product.module.css";
 
+export const metadata = {
+  title:
+    "Switchgear Supplier & Exporter from India | Trinity Electric Syndicate",
+  description:
+    "Trinity Electric Syndicate is a leading switchgear supplier across India and a trusted exporter worldwide. We deal in MCB, MCCB, RCBO, relays, timers & starters.",
+};
+
 const items = [
   {
     title: "MCB (Miniature Circuit Breaker)",
@@ -70,7 +77,7 @@ const items = [
   {
     title: "Pressure Switch (Air and Water)",
     sku: "TRI-PS",
-    brand: "Schneider, L&T....12+", 
+    brand: "Schneider, L&T....12+",
     image: "/images/switchgear/pressure-switch.jpg",
   },
 ];
@@ -96,7 +103,7 @@ export default function Switchgear() {
               <a
                 className={styles.btnprimary}
                 href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
-                  it.title
+                  it.title,
                 )}`}
               >
                 Enquire on WhatsApp

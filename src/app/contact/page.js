@@ -1,5 +1,12 @@
 import styles from "./contact.module.css";
 
+export const metadata = {
+  title:
+    "Contact Trinity Electric Syndicate | Electrical Supplier & Exporter from India",
+  description:
+    "Contact Trinity Electric Syndicate for switchgears, MCB, MCCB, RCBO, relays, timers, cables, wires & accessories. We supply across India and export electrical products worldwide.",
+};
+
 export default function Contact() {
   return (
     <section className="container">
