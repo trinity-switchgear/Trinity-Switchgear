@@ -190,6 +190,7 @@ export default function Broadcast() {
             <option value="Contractors">Contractors</option>
             <option value="Individual Customers">Individual Customers</option>
             <option value="Retailers">Retailers</option>
+            <option value="WhatsApp JID">Whatsapp Autosaved</option>
           </select>
 
           <p>Total: {count}</p>
