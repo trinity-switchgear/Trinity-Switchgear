@@ -1,4 +1,5 @@
 import styles from "./product.module.css";
+import Script from "next/script";
 
 export const metadata = {
   title:
@@ -84,34 +85,70 @@ const items = [
 
 export default function Switchgear() {
   return (
-    <section className={styles.container}>
-      <h1 className={styles.heading}>Switchgears</h1>
+    <>
+      <Script
+        id="product-schema-switchgear"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Industrial Switchgear & Electrical Protection Devices",
+            description:
+              "High-quality switchgear products including MCB, MCCB, RCBO, relays, timers and starters supplied across India and exported worldwide by Trinity Electric Syndicate.",
+            brand: {
+              "@type": "Brand",
+              name: "Trinity Electric Syndicate",
+            },
+            manufacturer: {
+              "@type": "Organization",
+              name: "Trinity Electric Syndicate",
+            },
+            offers: {
+              "@type": "Offer",
+              url: "https://www.trinityswitchgear.com/switchgear",
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              areaServed: "Worldwide",
+              seller: {
+                "@type": "Organization",
+                name: "Trinity Electric Syndicate",
+              },
+            },
+          }),
+        }}
+      />
 
-      <div className={styles.grid}>
-        {items.map((it) => (
-          <div key={it.sku} className={styles.card}>
-            <img
-              src={it.image}
-              alt={it.title}
-              className={styles.productImage}
-            />
-            <h3>{it.title}</h3>
-            <div className={styles.small}>SKU: {it.sku}</div>
-            <div className={styles.small}>Brand: {it.brand}</div>
+      <section className={styles.container}>
+        <h1 className={styles.heading}>Switchgears</h1>
 
-            <div className={styles.actions}>
-              <a
-                className={styles.btnprimary}
-                href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
-                  it.title,
-                )}`}
-              >
-                Enquire on WhatsApp
-              </a>
+        <div className={styles.grid}>
+          {items.map((it) => (
+            <div key={it.sku} className={styles.card}>
+              <img
+                src={it.image}
+                alt={it.title}
+                className={styles.productImage}
+              />
+              <h3>{it.title}</h3>
+              <div className={styles.small}>SKU: {it.sku}</div>
+              <div className={styles.small}>Brand: {it.brand}</div>
+
+              <div className={styles.actions}>
+                <a
+                  className={styles.btnprimary}
+                  href={`https://wa.me/918652859663?text=Quote%20for%20${encodeURIComponent(
+                    it.title,
+                  )}`}
+                >
+                  Enquire on WhatsApp
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

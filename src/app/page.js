@@ -1,5 +1,7 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import styles from "./page.module.css"; // ✅ keep this
+import FAQSection from "@/components/FAQ/faq";
+import Script from "next/script";
 
 export const metadata = {
   title:
@@ -11,6 +13,67 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Do you supply electrical products all over India?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. Trinity Electric Syndicate supplies switchgear, MCB, MCCB, RCBO, cables, wires, pipes, relays and accessories across all major cities and states in India.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you export electrical and switchgear products?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. We are a global exporter of electrical and switchgear products and regularly ship to multiple countries worldwide.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What products does Trinity Electric Syndicate deal in?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We deal in switchgear, MCB, MCCB, RCBO, relays, timers, starters, cables, wires, PVC conduits, smart devices and all electrical accessories.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you provide bulk and contractor pricing?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. We offer special pricing for contractors, builders, panel manufacturers and bulk buyers.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How can I place an order or send a BOQ?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "You can send your BOQ via WhatsApp or email, and our team will respond quickly with a competitive quote.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Are all your products genuine and branded?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Absolutely. We supply only 100% genuine branded electrical products from trusted manufacturers like Schneider, L&T, Legrand, Polycab, Siemens and more.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       <HeroSection />
       {/* <section className={`container ${styles.heroSection}`}>
         <br />
@@ -226,6 +289,82 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <FAQSection />
+
+      {/* <section className="container">
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+
+        <div className={styles.faqGrid}>
+          <details className={styles.faqItem}>
+            <summary className={styles.faqSummary}>
+              Do you supply electrical products all over India?
+              <span className={styles.icon} />
+            </summary>
+            <div className={styles.faqAnswer}>
+              Yes. Trinity Electric Syndicate supplies switchgear, MCB, MCCB,
+              RCBO, cables, wires, pipes, relays and accessories across all
+              major cities and states in India.
+            </div>
+          </details>
+
+          <details className={styles.faqItem}>
+            <summary className={styles.faqSummary}>
+              Do you export electrical and switchgear products?
+              <span className={styles.icon} />
+            </summary>
+            <div className={styles.faqAnswer}>
+              Yes. We are a global exporter of electrical and switchgear
+              products and regularly ship to multiple countries worldwide.
+            </div>
+          </details>
+
+          <details className={styles.faqItem}>
+            <summary className={styles.faqSummary}>
+              What products does Trinity Electric Syndicate deal in?
+              <span className={styles.icon} />
+            </summary>
+            <div className={styles.faqAnswer}>
+              We deal in switchgear, MCB, MCCB, RCBO, relays, timers, starters,
+              cables, wires, PVC conduits, smart devices and all electrical
+              accessories.
+            </div>
+          </details>
+
+          <details className={styles.faqItem}>
+            <summary className={styles.faqSummary}>
+              Do you provide bulk and contractor pricing?
+              <span className={styles.icon} />
+            </summary>
+            <div className={styles.faqAnswer}>
+              Yes. We offer special pricing for contractors, builders, panel
+              manufacturers and bulk buyers.
+            </div>
+          </details>
+
+          <details className={styles.faqItem}>
+            <summary className={styles.faqSummary}>
+              How can I place an order or send a BOQ?
+              <span className={styles.icon} />
+            </summary>
+            <div className={styles.faqAnswer}>
+              You can send your BOQ via WhatsApp or email, and our team will
+              respond quickly with a competitive quote.
+            </div>
+          </details>
+
+          <details className={styles.faqItem}>
+            <summary className={styles.faqSummary}>
+              Are all your products genuine and branded?
+              <span className={styles.icon} />
+            </summary>
+            <div className={styles.faqAnswer}>
+              Absolutely. We supply only 100% genuine branded electrical
+              products from trusted manufacturers like Schneider, L&T, Legrand,
+              Polycab, Siemens and more.
+            </div>
+          </details>
+        </div>
+      </section> */}
     </>
   );
 }

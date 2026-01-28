@@ -2,13 +2,25 @@ import "@/app/globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat/WhatsAppFloat";
-import Script from "next/script"; // ✅ Import Next.js Script for JSON-LD
+import Script from "next/script";
 
 export const metadata = {
+  metadataBase: new URL("https://www.trinityswitchgear.com"),
+  openGraph: {
+    title:
+      "Trinity Electric Syndicate | Electrical Supplier & Exporter from India",
+    description:
+      "Leading electrical & switchgear supplier across India and global exporter of MCB, MCCB, RCBO, relays, timers, cables & accessories.",
+    url: "https://www.trinityswitchgear.com",
+    siteName: "Trinity Electric Syndicate",
+    images: ["/og-image.jpg"],
+    locale: "en_IN",
+    type: "website",
+  },
   title:
     "Trinity Electric Syndicate | Electrical & Switchgear Supplier in India",
   description:
-    "Trinity Electric Syndicate is a leading supplier of electrical & switchgear products in India.",
+    "Trinity Electric Syndicate is a leading electrical & switchgear products supplier across India and a trusted exporter worldwide.",
   icons: {
     icon: [
       {
@@ -28,23 +40,26 @@ export default function RootLayout({ children }) {
         <Footer />
         <WhatsAppFloat />
 
-        {/* ✅ Local Business JSON-LD */}
+        {/* ✅ Organization + Exporter JSON-LD */}
         <Script
-          id="local-business-schema"
+          id="trinity-organization-schema"
           type="application/ld+json"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ElectricalBusiness",
+              "@type": "Organization",
               name: "Trinity Electric Syndicate",
               url: "https://www.trinityswitchgear.com",
-              telephone: "+91-XXXXXXXXXX", // replace with real number
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Kalbadevi",
-                addressRegion: "Mumbai",
-                postalCode: "400002",
-                addressCountry: "IN",
+              logo: "https://www.trinityswitchgear.com/logos/logo.png",
+              description:
+                "Leading electrical & switchgear supplier across India and global exporter of MCB, MCCB, RCBO, relays, timers, cables, wires and accessories.",
+              areaServed: "Worldwide",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-8652859663", // 👉 replace with real number
+                contactType: "sales",
+                availableLanguage: ["English", "Hindi"],
               },
             }),
           }}

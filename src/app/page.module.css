@@ -359,6 +359,107 @@
   border: 0;
 }
 
+/* ================= FAQ SECTION ================= */
+
+.faqTitle {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 4rem 0 2rem;
+  color: #111;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.faqItem {
+  position: relative;
+}
+
+/* Question Card */
+.faqItem summary {
+  list-style: none;
+  cursor: pointer;
+  background: #ffffff;
+  padding: 18px 20px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #222;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  transition: all 0.45s ease;
+}
+
+.faqItem summary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Remove default arrow */
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Open State (Optional – enable if you want dark header when open) */
+/*
+.faqItem[open] summary {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+}
+*/
+
+/* Summary Layout */
+.faqSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Icon (CSS + / −) */
+.icon::before {
+  content: "+";
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] .icon::before {
+  content: "−";
+}
+
+/* Answer Dropdown */
+.faqAnswer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: -12px;
+  background: #ffffff;
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+  z-index: 25;
+  animation: faqFade 0.45s ease;
+}
+
+/* Animation */
+@keyframes faqFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 📱 Mobile */
 @media (max-width: 768px) {
   .mapWrapper {
@@ -373,6 +474,13 @@
 
   .aboutSection {
     padding: 14px 50px;
+  }
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faqTitle {
+    font-size: 1.8rem;
   }
 }
 
