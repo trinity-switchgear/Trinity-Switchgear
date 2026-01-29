@@ -156,6 +156,67 @@
   margin: 0;
 }
 
+.backupBox {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.backupTitle {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.backupRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.backupSelect {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  min-width: 240px;
+}
+
+.backupBtn {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #eee;
+  transition: background 0.2s ease;
+}
+
+.backupBtn:hover {
+  background: #ddd;
+}
+
+.backupBtnPrimary {
+  background: #4caf50;
+  color: #fff;
+}
+
+.backupBtnPrimary:hover {
+  background: #43a047;
+}
+
+.backupBtnDanger {
+  background: #e53935;
+  color: #fff;
+}
+
+.backupBtnDanger:hover {
+  background: #d32f2f;
+}
+
 /* ===========================
    📱 Responsive Styles
    =========================== */

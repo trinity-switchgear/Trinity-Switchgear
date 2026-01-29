@@ -17,16 +17,71 @@ export default function Broadcast() {
   const [isPaused, setIsPaused] = useState(false);
   const [sentCount, setSentCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const [backups, setBackups] = useState([]);
+  const [selectedBackup, setSelectedBackup] = useState("");
 
   // ✅ Load token safely in browser only
   useEffect(() => {
     const t = localStorage.getItem("token");
+    console.log(t);
     if (!t) {
       router.push("/login");
     } else {
       setToken(t);
+      loadBackups(t);
     }
   }, [router]);
+
+  async function loadBackups(authToken) {
+    const res = await fetch(
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/list-backups",
+      {
+        method: "GET",
+        headers: { Authorization: `Bearer ${authToken}` },
+      },
+    );
+        console.log(res);
+    const data = await res.json();
+    console.log("Backups:", data);
+    setBackups(data.backups || []);
+  }
+
+  async function backupNow() {
+    await fetch(
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/backup-now",
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+    alert("✅ Backup created");
+    loadBackups();
+  }
+
+  async function restoreBackup() {
+    if (!selectedBackup) return alert("Select a backup first");
+
+    const ok = confirm(
+      `⚠️ Restore backup?\nThis will overwrite contacts.xlsx!\n\n${selectedBackup}`,
+    );
+    if (!ok) return;
+
+    const res = await fetch(
+      "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/restore",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ fileName: selectedBackup }),
+      },
+    );
+
+    const data = await res.json();
+    if (data.success) alert("♻️ Excel restored successfully");
+    else alert("❌ Restore failed: " + data.error);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -251,6 +306,41 @@ export default function Broadcast() {
             ))}
           </div>
         </form>
+
+        <div className={styles.backupBox}>
+          <div className={styles.backupTitle}>📂 Excel Backups</div>
+
+          <div className={styles.backupRow}>
+            <select
+              className={styles.backupSelect}
+              value={selectedBackup}
+              onChange={(e) => setSelectedBackup(e.target.value)}
+            >
+              <option value="">Select backup to restore</option>
+              {backups.map((b) => (
+                <option key={b} value={b}>
+                  {b}
+                </option>
+              ))}
+            </select>
+
+            <button
+              type="button"
+              onClick={backupNow}
+              className={`${styles.backupBtn} ${styles.backupBtnPrimary}`}
+            >
+              💾 Backup Now
+            </button>
+
+            <button
+              type="button"
+              onClick={restoreBackup}
+              className={`${styles.backupBtn} ${styles.backupBtnDanger}`}
+            >
+              ♻️ Restore
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
