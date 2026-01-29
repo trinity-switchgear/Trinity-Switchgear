@@ -7,6 +7,7 @@ import styles from "./broadcast.module.css";
 export default function Broadcast() {
   const router = useRouter();
   const logRef = useRef(null);
+  const [toast, setToast] = useState(null);
 
   const [token, setToken] = useState(null); // 👈 SAFE
   const [status, setStatus] = useState("Ready");
@@ -47,15 +48,35 @@ export default function Broadcast() {
   }
 
   async function backupNow() {
-    await fetch(
-      "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/backup-now",
-      {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-      },
-    );
-    alert("✅ Backup created");
-    loadBackups();
+    if (!token) return;
+
+    try {
+      const res = await fetch(
+        "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/backup-now",
+        {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Backup failed");
+      }
+
+      setToast({ type: "success", message: "💾 Backup created successfully!" });
+      setTimeout(() => setToast(null), 3000);
+
+      loadBackups();
+    } catch (err) {
+      console.error("Backup error:", err);
+      setToast({
+        type: "error",
+        message: "❌ Backup failed: " + err.message,
+      });
+      setTimeout(() => setToast(null), 4000);
+    }
   }
 
   async function restoreBackup() {
@@ -79,8 +100,20 @@ export default function Broadcast() {
     );
 
     const data = await res.json();
-    if (data.success) alert("♻️ Excel restored successfully");
-    else alert("❌ Restore failed: " + data.error);
+
+    if (res.ok && data.success) {
+      setToast({
+        type: "success",
+        message: "♻️ Backup restored successfully!",
+      });
+      setTimeout(() => setToast(null), 3000);
+    } else {
+      setToast({
+        type: "error",
+        message: "❌ Restore failed: " + (data.error || "Unknown error"),
+      });
+      setTimeout(() => setToast(null), 4000);
+    }
   }
 
   async function handleSubmit(e) {
@@ -228,6 +261,16 @@ export default function Broadcast() {
 
   return (
     <section className={styles.container}>
+      {toast && (
+        <div
+          className={`${styles.toast} ${
+            toast.type === "success" ? styles.toastSuccess : styles.toastError
+          }`}
+        >
+          {toast.message}
+        </div>
+      )}
+
       <div className={styles.card}>
         <h2>📢 Broadcast Panel</h2>
 
@@ -314,6 +357,7 @@ export default function Broadcast() {
             <select
               className={styles.backupSelect}
               value={selectedBackup}
+              disabled={isRunning}
               onChange={(e) => setSelectedBackup(e.target.value)}
             >
               <option value="">Select backup to restore</option>
@@ -336,6 +380,7 @@ export default function Broadcast() {
               type="button"
               onClick={restoreBackup}
               className={`${styles.backupBtn} ${styles.backupBtnDanger}`}
+              disabled={isRunning || !selectedBackup}
             >
               ♻️ Restore
             </button>

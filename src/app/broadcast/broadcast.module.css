@@ -49,9 +49,7 @@
   cursor: pointer;
   font-weight: 600;
   font-size: 15px;
-  transition:
-    background 0.2s ease,
-    transform 0.05s ease;
+  transition: background 0.2s ease, transform 0.05s ease;
 }
 
 .card button:active {
@@ -215,6 +213,38 @@
 
 .backupBtnDanger:hover {
   background: #d32f2f;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 50px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease;
+  z-index: 9999;
+}
+
+.toastSuccess {
+  background: #16a34a; /* green */
+}
+
+.toastError {
+  background: #dc2626; /* red */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================
