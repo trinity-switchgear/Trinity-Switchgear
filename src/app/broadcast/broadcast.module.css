@@ -180,12 +180,15 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 0.85rem;
-  min-width: 240px;
+  flex: 1 1 100%;
+  min-width: 100%;
 }
 
 .backupBtn {
   padding: 6px 10px;
   font-size: 0.85rem;
+  flex: 1 1 48%; /* 👈 half width */
+  text-align: center;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -288,6 +291,10 @@
 
 /* Small Phones */
 @media (max-width: 480px) {
+  .backupBtn {
+    flex: 1 1 100%;
+  }
+
   .card {
     padding: 20px 16px;
   }
