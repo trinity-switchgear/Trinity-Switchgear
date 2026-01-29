@@ -220,8 +220,8 @@
 
 .toast {
   position: fixed;
-  top: 20px;
-  right: 50px;
+  top: 120px;
+  right: 600px;
   padding: 12px 18px;
   border-radius: 6px;
   font-size: 16px;

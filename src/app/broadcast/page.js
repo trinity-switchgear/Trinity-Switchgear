@@ -33,18 +33,32 @@ export default function Broadcast() {
   }, [router]);
 
   async function loadBackups(authToken) {
-    const res = await fetch(
-      "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/list-backups",
-      {
-        method: "GET",
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-          Authorization: `Bearer ${authToken}`,
+    try {
+      const res = await fetch(
+        "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/list-backups",
+        {
+          method: "GET",
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+            Authorization: `Bearer ${authToken}`,
+          },
         },
-      },
-    );
-    const data = await res.json();
-    setBackups(data.backups || []);
+      );
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to load backups");
+      }
+
+      setBackups(data.backups || []);
+    } catch (err) {
+      setToast({
+        message: "❌ Failed to load backups",
+        type: "error", // 🔴 red toast
+      });
+      setTimeout(() => setToast(null), 4000);
+    }
   }
 
   async function backupNow() {
