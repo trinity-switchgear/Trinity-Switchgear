@@ -221,15 +221,17 @@
 .toast {
   position: fixed;
   top: 120px;
-  right: 600px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 12px 18px;
   border-radius: 6px;
   font-size: 16px;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.5s ease;
   z-index: 9999;
 }
+
 
 .toastSuccess {
   background: #16a34a; /* green */
@@ -242,13 +244,14 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateX(-50%) translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
+
 
 /* ===========================
    📱 Responsive Styles
