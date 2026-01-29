@@ -23,7 +23,6 @@ export default function Broadcast() {
   // ✅ Load token safely in browser only
   useEffect(() => {
     const t = localStorage.getItem("token");
-    console.log(t);
     if (!t) {
       router.push("/login");
     } else {
@@ -37,12 +36,13 @@ export default function Broadcast() {
       "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/list-backups",
       {
         method: "GET",
-        headers: { Authorization: `Bearer ${authToken}` },
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          Authorization: `Bearer ${authToken}`,
+        },
       },
     );
-        console.log(res);
     const data = await res.json();
-    console.log("Backups:", data);
     setBackups(data.backups || []);
   }
 
