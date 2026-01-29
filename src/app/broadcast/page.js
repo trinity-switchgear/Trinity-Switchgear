@@ -32,7 +32,7 @@ export default function Broadcast() {
     }
   }, [router]);
 
-  async function loadBackups(authToken) {
+  async function loadBackups( authToken) {
     try {
       const res = await fetch(
         "https://waitressless-shemika-unwitting.ngrok-free.dev/admin/list-backups",
@@ -40,14 +40,14 @@ export default function Broadcast() {
           method: "GET",
           headers: {
             "ngrok-skip-browser-warning": "true",
-            Authorization: `Bearer ${authToken}`,
+            Authorization: `Bearer ${ authToken || token}`,
           },
         },
       );
 
       const data = await res.json();
 
-      if (!res.ok || !data.success) {
+      if (!res.ok || !data.backups) {
         throw new Error(data.error || "Failed to load backups");
       }
 
