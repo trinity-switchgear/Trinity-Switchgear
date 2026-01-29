@@ -57,7 +57,7 @@ export default function Broadcast() {
         message: "❌ Failed to load backups",
         type: "error", // 🔴 red toast
       });
-      setTimeout(() => setToast(null), 4000);
+      setTimeout(() => setToast(null), 3000);
     }
   }
 
@@ -89,7 +89,7 @@ export default function Broadcast() {
         type: "error",
         message: "❌ Backup failed: " + err.message,
       });
-      setTimeout(() => setToast(null), 4000);
+      setTimeout(() => setToast(null), 3000);
     }
   }
 
@@ -126,7 +126,7 @@ export default function Broadcast() {
         type: "error",
         message: "❌ Restore failed: " + (data.error || "Unknown error"),
       });
-      setTimeout(() => setToast(null), 4000);
+      setTimeout(() => setToast(null), 3000);
     }
   }
 
